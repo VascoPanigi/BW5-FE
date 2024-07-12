@@ -2,10 +2,13 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { MDBContainer, MDBInput, MDBCheckbox, MDBBtn } from "mdb-react-ui-kit";
 import { Form } from "react-bootstrap";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { fetchUserAction } from "../redux/actions";
 
 const Login = () => {
   const [isLogged, setIsLogged] = useState(true);
-  const [data, setData] = useState(null);
+  // const [data, setData] = useState(null);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -13,17 +16,20 @@ const Login = () => {
     console.log("oh no devo registrarmioo");
   }, [isLogged]);
 
-  const postLogin = async (loginObject) => {
-    try {
-      const response = await axios.post("http://localhost:3001/auth/login", loginObject);
-      setData(response.data);
-      //   TODO - SISTEMARE INSERIMENTO BEARER TOKEN NEL LOCALSTORAGE
-      localStorage.setItem("Bearer", response.data);
-      console.log(response.data);
-    } catch (err) {
-      console.log(err.message);
-    }
-  };
+  // const postLogin = async (loginObject) => {
+  //   try {
+  //     const response = await axios.post("http://localhost:3001/auth/login", loginObject);
+  //     setData(response.data);
+  //     //   TODO - SISTEMARE INSERIMENTO BEARER TOKEN NEL LOCALSTORAGE
+  //     localStorage.setItem("Bearer", response.data);
+  //     console.log(response.data);
+  //   } catch (err) {
+  //     console.log(err.message);
+  //   }
+  // };
+
+  const dispatch = useDispatch();
+  // const navigate = useNavigate()
 
   const handleLoginSubmit = (e) => {
     e.preventDefault();
@@ -32,7 +38,7 @@ const Login = () => {
       email: email,
       password: password,
     };
-    postLogin(loginObject);
+    dispatch(fetchUserAction(loginObject));
   };
 
   return (
