@@ -1,22 +1,24 @@
-import { Col, Container, Row } from "react-bootstrap";
-import Button from "react-bootstrap/Button";
-import Card from "react-bootstrap/Card";
+import { Col, Container, Row } from "react-bootstrap"
+import Button from "react-bootstrap/Button"
+import Card from "react-bootstrap/Card"
 const ClientCard = ({ client }) => {
   return (
     <Container>
       <Row>
         <Col>
-          <Card>
+          <Card className="mb-3">
             <Card.Header>{client.companyName}</Card.Header>
             <Card.Body>
-              <Card.Title>Special title treatment</Card.Title>
-              <Card.Text>With supporting text below as a natural lead-in to additional content.</Card.Text>
-              <Button variant="primary">Go somewhere</Button>
+              <Card.Title>p.iva: {client.vatNumber}</Card.Title>
+              <Card.Text>pec: {client.pec}</Card.Text>
+              <Card.Text>registrato il {client.insertionDate}</Card.Text>
+              <Card.Text> {client.clientType}</Card.Text>
+              <Button variant="primary">vedi dettagli</Button>
             </Card.Body>
           </Card>
         </Col>
       </Row>
     </Container>
-  );
-};
-export default ClientCard;
+  )
+}
+export default ClientCard
