@@ -1,9 +1,9 @@
-import Container from "react-bootstrap/Container";
-import Navbar from "react-bootstrap/Navbar";
+import Container from "react-bootstrap/Container"
+import Navbar from "react-bootstrap/Navbar"
 
 const MyNavbar = () => {
   return (
-    <Navbar fluid className="bg-body-tertiary">
+    <Navbar className="bg-body-tertiary">
       <Container>
         <Navbar.Brand href="#home">Navbar with text</Navbar.Brand>
         <Navbar.Toggle />
@@ -14,7 +14,7 @@ const MyNavbar = () => {
         </Navbar.Collapse>
       </Container>
     </Navbar>
-  );
-};
+  )
+}
 
-export default MyNavbar;
+export default MyNavbar
