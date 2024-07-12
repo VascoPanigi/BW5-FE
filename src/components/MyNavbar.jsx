@@ -1,5 +1,7 @@
-import Container from "react-bootstrap/Container"
-import Navbar from "react-bootstrap/Navbar"
+import { Button } from "react-bootstrap";
+import Container from "react-bootstrap/Container";
+import Navbar from "react-bootstrap/Navbar";
+import { Link } from "react-router-dom";
 
 const MyNavbar = () => {
   return (
@@ -11,10 +13,13 @@ const MyNavbar = () => {
           <Navbar.Text>
             Signed in as: <a href="#login">Team 6</a>
           </Navbar.Text>
+          <Link to="/register">
+            <Button className="ms-5">Register</Button>
+          </Link>
         </Navbar.Collapse>
       </Container>
     </Navbar>
-  )
-}
+  );
+};
 
-export default MyNavbar
+export default MyNavbar;
