@@ -4,28 +4,17 @@ import { Container, Form } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { fetchUserAction } from "../redux/actions";
+import background from "../assets//nasa.jpg";
+import background1 from "../assets//field.jpg";
 
 const Login = () => {
   const [isLogged, setIsLogged] = useState(true);
-  // const [data, setData] = useState(null);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   useEffect(() => {
     console.log("oh no devo registrarmioo");
   }, [isLogged]);
-
-  // const postLogin = async (loginObject) => {
-  //   try {
-  //     const response = await axios.post("http://localhost:3001/auth/login", loginObject);
-  //     setData(response.data);
-  //     //   TODO - SISTEMARE INSERIMENTO BEARER TOKEN NEL LOCALSTORAGE
-  //     localStorage.setItem("Bearer", response.data);
-  //     console.log(response.data);
-  //   } catch (err) {
-  //     console.log(err.message);
-  //   }
-  // };
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -41,7 +30,7 @@ const Login = () => {
   };
 
   return (
-    <Container fluid className="login-container">
+    <Container fluid className="login-container" style={{ backgroundImage: `url(${background1})` }}>
       <MDBContainer className="p-3 my-5 d-flex flex-column form-container">
         {isLogged ? (
           <>

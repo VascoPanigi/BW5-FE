@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchUserInfoAction } from "../redux/actions";
 import { Container } from "react-bootstrap";
+import MyNavbar from "./MyNavbar";
 
 const Homepage = () => {
   const token = useSelector((state) => state.user.user_bearer.accessToken);
@@ -17,7 +18,7 @@ const Homepage = () => {
 
   return (
     <Container fluid className="homepage-container">
-      <h1>AO</h1>
+      <MyNavbar />
     </Container>
   );
 };
